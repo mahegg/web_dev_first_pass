@@ -1,0 +1,45 @@
+
+<div fxFlex="90" fxFlexOffset="5" fxLayout="column" fxLayoutGap="20px" class="top-padding" *ngIf="!this.loading">
+
+  <h2>Records</h2>
+
+  <mat-card>
+    <mat-card-content>
+
+      <table class="details-table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>URL</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let record of result">
+          <td>{{record?.id}}</td>
+          <td>{{record?.url}}</td>
+          <td>{{record?.username}}</td>
+          <td>{{record?.password}}</td>
+          <td><button mat-flat-button color="warn" type="button" class="show-hover" (click)="deleteRecord(record?.id)">Delete</button></td>
+        </tr>
+        <tr>
+          <td colspan="6">
+            <button mat-flat-button color="accent" type="button" class="show-hover" (click)="openDialog()">Add</button>
+          </td>
+        </tr>
+        </tbody>
+
+      </table>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+
+<div fxFlex="20" fxFlexOffset="5" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center" class="top-padding" *ngIf="this.loading">
+  <mat-spinner [diameter]="40"></mat-spinner>
+</div>

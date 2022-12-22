@@ -1,0 +1,20 @@
+
+.details-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  border: 1px solid #ddd;
+  font-size: 13px;
+  padding: 4px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+
+.show-hover {
+  cursor: pointer;
+}

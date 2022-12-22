@@ -1,0 +1,27 @@
+<div fxFlex  class="top-padding">
+  <div fxlayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="authForm" (ngSubmit)="signIn()">
+        <mat-card-content>
+        <mat-form-field >
+        <input matInput type="text" placeholder="username" formControlName="username">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password">
+          </mat-form-field>
+
+        </mat-card-content>
+
+        <div class="top-padding" fxLayoutAlign="center center"><button mat-stroked-button color="primary" type="submit">Login</button></div>
+
+      </form>
+    </mat-card>
+  </div>
+
+  <div fxLayoutAlign="center center"><span><a [routerLink]="['/register']" mat-button>Register</a></span></div>
+
+</div>

@@ -1,0 +1,47 @@
+<div fxFlex  class="top-padding">
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+        <mat-form-field >
+          <input matInput placeholder="Username" formControlName="username">
+        </mat-form-field>
+        <mat-form-field >
+          <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+        <div formGroupName="passGroup">
+        <mat-form-field>
+          <input matInput placeholder="New password" formControlName="password" required>
+          <mat-error *ngIf="registerForm.controls['passGroup'].hasError('required', 'password')">
+            Please enter your new password
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Confirm password" formControlName="confirmPassword" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="registerForm.controls['passGroup'].hasError('notSame')">
+            Passwords do not match
+          </mat-error>
+        </mat-form-field>
+        </div>
+      <div class="top-padding" fxLayoutAlign="center center"><button mat-stroked-button color="primary" type="submit">Register</button></div>
+    </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+  <div fxLayoutAlign="center center"><span><a [routerLink]="['/logon']" mat-button >Login</a></span></div>
+    <div>
+      <mat-card *ngFor="let error of errorMap | keyvalue" fxLayoutAlign="center center">
+        <mat-card-content>
+          {{error.key}} - {{error.value}}
+        </mat-card-content>
+      </mat-card>
+    </div>
+</div>
+
+
+

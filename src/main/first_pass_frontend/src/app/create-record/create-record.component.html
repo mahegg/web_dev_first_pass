@@ -1,0 +1,42 @@
+<div class="top-padding">
+  <form (keydown.enter)="$event.preventDefault()" (ngSubmit)="updateFormValues()" [formGroup]="recordForm">
+
+
+    <div fxLayout="column" fxFlex="98" fxLayoutAlign="center center">
+
+      <div fxFlex>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput
+            id="usernameId"
+                 type="text"
+                 placeholder="username"
+                 formControlName="username"
+                 required
+          >
+        </mat-form-field>
+      </div>
+
+      <div fxFlex>
+        <mat-form-field>
+          <mat-label>URL</mat-label>
+          <input matInput
+                 id="url"
+                 type="text"
+                 placeholder="url"
+                 formControlName="url"
+                 required
+          >
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <div class="mat-dialog-actions">
+      <button mat-button color="warning" type="button" (click)="onNoClick()">Cancel</button>
+      <button mat-button color="primary" type="button" (click)="updateFormValues()">Save</button>
+    </div>
+
+
+  </form>
+</div>
